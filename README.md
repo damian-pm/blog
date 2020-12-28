@@ -1,2 +1,1 @@
-# blog
-Tutorials PHP, JS, MySQL, GIT
+blog tutorial php,sql,js,git
