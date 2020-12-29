@@ -14,7 +14,7 @@ Vue.use(IconsPlugin)
 Vue.config.productionTip = false
 const routes = [
   { name: 'Article', path: '/article/:id', component: Article },
-  { name: 'ArticleList', path: '/articles/:tag', component: ArticleList }
+  { name: 'ArticleList', path: '/article-list/:tag', component: ArticleList }
 ]
 
 const router = new VueRouter({

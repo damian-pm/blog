@@ -11,7 +11,7 @@
                         </b-card-text>
 
                         <b-card-text>A second paragraph of text in the card.</b-card-text>
-
+                        <router-link :to="{name:'Article', params:{id:index}}">Go to article</router-link>
                         <a href="#" class="card-link">Card link</a>
                         <b-link href="#" class="card-link">Another link</b-link>
                     </b-card>
@@ -38,13 +38,15 @@ export default {
         this.tag = this.$route.params.tag
         this.filterByTagArticles()
     },
+    beforeRouteUpdate(to, from, next){
+        // console.log(to)
+        this.tag = to.params.tag
+        this.filterByTagArticles()
+        next()
+    },
     methods:{
-        beforeRouteUpdate(to, from, next){
-            console.log(to)
-           this.tag = to.$params.tag
-            next()
-        },
         filterByTagArticles(){
+            this.filterArticles = []
             console.log('filtruj')
             let art = {}
             for (let i in this.articles) {

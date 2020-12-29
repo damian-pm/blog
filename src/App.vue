@@ -10,8 +10,7 @@
         </div>
       </div>
     </div>
-    <!-- <router-link :to="{name:'Article', params:{id:0}}">Go to Foo1</router-link>
-    <router-link :to="{name:'ArticleList', params:{tag:'php2'}}">Go to Fo2o</router-link> -->
+    <!-- <router-link :to="{name:'Article', params:{id:0}}">Go to Foo1</router-link> -->
     <router-view></router-view>
   </div>
 </template>
