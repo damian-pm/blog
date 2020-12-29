@@ -1,20 +1,22 @@
 <template>
     <div>
-        ArticleList {{tag}}
+        
         <div class="container">
             <div class="row">
+                <div class="col-sm-12 h2">
+                    {{tag}}
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-sm-12 text-left">
-                    <span v-for="(item, index) in filterArticles"  :key="index">
+                    <span class="art-card" v-for="(item, index) in filterArticles"  :key="index">
                       <b-card  v-if="item.show"  :title="item.title" :sub-title="item.tags.join(', ')" >
-                        <b-card-text>
-                        {{index}} - {{item.title}}
-                        </b-card-text>
 
-                        <b-card-text>A second paragraph of text in the card.</b-card-text>
-                        <router-link :to="{name:'Article', params:{id:index}}">Go to article</router-link>
-                        <a href="#" class="card-link">Card link</a>
-                        <b-link href="#" class="card-link">Another link</b-link>
-                    </b-card>
+                            <b-card-text>{{item.description}}</b-card-text>
+                            <router-link :to="{name:'Article', params:{id:index}}">Go to article</router-link>
+                            <!-- <a href="#" class="card-link">Card link</a>
+                            <b-link href="#" class="card-link">Another link</b-link> -->
+                        </b-card>
                     </span>
                 </div>
             </div>
@@ -63,3 +65,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.art-card {
+    margin:10px;
+}
+</style>

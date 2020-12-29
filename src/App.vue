@@ -1,15 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <div class="conteiner">
+    <div class="container">
       <div class="row">
         <!-- <b-button v-for="tag in tags" :key="tag">{{tag}}</b-button> -->
-        <div class="col-sm-12">
-            <router-link class="btn btn-info" v-for="tag in tags" :key="tag" :to="{name:'ArticleList', params:{tag:tag}}">{{tag}}</router-link>
+        <div class="col-sm-4">
+          <img alt="Vue logo" src="./assets/icon.png" width="100">
+        </div>
+        <div class="col-sm-8">
+              <b-button-group>
+                <router-link class="btn btn-info" v-for="tag in tags" :key="tag" :to="{name:'ArticleList', params:{tag:tag}}">{{tag}}</router-link>
+            </b-button-group>
         </div>
       </div>
+      <hr>
     </div>
+    
     <!-- <router-link :to="{name:'Article', params:{id:0}}">Go to Foo1</router-link> -->
     <router-view></router-view>
   </div>
