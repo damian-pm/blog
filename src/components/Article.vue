@@ -3,13 +3,14 @@
         <div class="row">
             <div class="col-sm-12">
             <p class="text-left" v-html="content"></p>
-                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import data from '../../data'
+import showdownHighlight from 'showdown-highlight'
 import showdown from 'showdown'
 import $ from 'jquery'
 
@@ -40,7 +41,9 @@ export default {
                 methods: 'GET',
                 url: '/articles/' + this.currentArticle.file
             })
-            let converter = new showdown.Converter()
+            let converter = new showdown.Converter({
+                extensions: [showdownHighlight]
+            })
             this.content = converter.makeHtml(data);
         },
         getArticleById(){

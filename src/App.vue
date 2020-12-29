@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <div class="container">
+        <div class="container">
       <div class="row">
-        <!-- <b-button v-for="tag in tags" :key="tag">{{tag}}</b-button> -->
         <div class="col-sm-4">
           <img alt="Vue logo" src="./assets/icon.png" width="100">
         </div>
@@ -16,14 +13,11 @@
       </div>
       <hr>
     </div>
-    
-    <!-- <router-link :to="{name:'Article', params:{id:0}}">Go to Foo1</router-link> -->
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
 import data from '../data'
 
 export default {
@@ -36,9 +30,6 @@ export default {
   },
   mounted(){
     this.getTagList()
-  },
-  components: {
-    // HelloWorld
   },
   methods:{
     getTagList(){
