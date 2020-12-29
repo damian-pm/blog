@@ -1,6 +1,24 @@
 <template>
     <div>
-        ArticleList
+        ArticleList {{tag}}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-left">
+                    <span v-for="(item, index) in filterArticles"  :key="index">
+                      <b-card  v-if="item.show"  :title="item.title" :sub-title="item.tags.join(', ')" >
+                        <b-card-text>
+                        {{index}} - {{item.title}}
+                        </b-card-text>
+
+                        <b-card-text>A second paragraph of text in the card.</b-card-text>
+
+                        <a href="#" class="card-link">Card link</a>
+                        <b-link href="#" class="card-link">Another link</b-link>
+                    </b-card>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -11,14 +29,35 @@ export default {
     name: 'ArticleList',
     data(){
         return {
-            articles: data.articles
+            tag: '',
+            articles: data.articles,
+            filterArticles: []
         }
     },
+    mounted(){
+        this.tag = this.$route.params.tag
+        this.filterByTagArticles()
+    },
     methods:{
-        // beforeRouteUpdate (to, from, next) {
-        //     // react to route changes...
-        //     // don't forget to call next()
-        // }
+        beforeRouteUpdate(to, from, next){
+            console.log(to)
+           this.tag = to.$params.tag
+            next()
+        },
+        filterByTagArticles(){
+            console.log('filtruj')
+            let art = {}
+            for (let i in this.articles) {
+                art = this.articles[i]
+                if (art.tags.indexOf(this.tag) != -1) {
+                    art.show = true
+                } else {
+                    art.show = false
+                }
+                this.filterArticles.push(art)
+            }
+        }
+        
     }
 }
 </script>
